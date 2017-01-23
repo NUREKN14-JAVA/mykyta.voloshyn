@@ -1,11 +1,10 @@
-package com.voloshyn.mykyta.main.java;
+package main.java;
 
 /**
  * Created by VSV on 21/01/17.
  */
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 
 public class User {

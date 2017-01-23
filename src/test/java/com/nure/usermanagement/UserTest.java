@@ -1,6 +1,6 @@
-package com.voloshyn.mykyta.test.java;
+package test.java;
 
-import com.voloshyn.mykyta.main.java.User;
+import main.java.com.nure.usermanagement.User;
 
 import junit.framework.TestCase;
 
