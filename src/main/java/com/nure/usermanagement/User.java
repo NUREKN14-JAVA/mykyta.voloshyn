@@ -1,4 +1,4 @@
-package main.java;
+package main.java.com.nure.usermanagement;
 
 /**
  * Created by VSV on 21/01/17.
@@ -8,16 +8,16 @@ import java.util.Date;
 
 
 public class User {
-    private long id;
+    private Long id;
     private String firstname;
     private String lastName;
     private Date dateOfBirthd;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

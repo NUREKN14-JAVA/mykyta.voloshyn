@@ -1,4 +1,4 @@
-package test.java;
+package test.java.com.nure.usermanagement;
 
 import main.java.com.nure.usermanagement.User;
 
