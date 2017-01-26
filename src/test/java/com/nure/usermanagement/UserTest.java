@@ -26,13 +26,13 @@ public class UserTest extends TestCase {
     }
 
     public void testGetFullName() {
-        user.setFirstname("John");
+        user.setFirstName("John");
         user.setLastName("Doe");
         assertEquals("Doe, John", user.getFullName());
     }
 
     public void testGetAge() {
-        user.setDateOfBirthd(dateOfBirth);
+        user.setDateOfBirth(dateOfBirth);
         assertEquals(2017 - 1984, user.getAge());
     }
 

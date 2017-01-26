@@ -21,11 +21,11 @@ public class User {
         this.id = id;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstname;
     }
 
-    public void setFirstname(String firstname) {
+    public void setFirstName(String firstname) {
         this.firstname = firstname;
     }
 
@@ -37,23 +37,23 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirthd() {
+    public Date getDateOfBirth() {
         return dateOfBirthd;
     }
 
-    public void setDateOfBirthd(Date dateOfBirthd) {
+    public void setDateOfBirth(Date dateOfBirthd) {
         this.dateOfBirthd = dateOfBirthd;
     }
 
     public Object getFullName() {
-        return getLastName() + ", " + getFirstname();
+        return getLastName() + ", " + getFirstName();
     }
 
     public int getAge() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         int currentYear = calendar.get(Calendar.YEAR);
-        calendar.setTime(getDateOfBirthd());
+        calendar.setTime(getDateOfBirth());
         int year = calendar.get(Calendar.YEAR);
         return currentYear - year;
     }

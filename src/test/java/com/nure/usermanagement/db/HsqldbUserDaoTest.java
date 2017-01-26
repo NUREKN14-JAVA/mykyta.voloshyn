@@ -21,6 +21,7 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 
     private HsqldbUserDao dao;
     private ConnectionFactory connectionFactory;
+    private Long id = new Long(1000);
 
     public void setUp() throws Exception {
         super.setUp();
@@ -30,9 +31,9 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
     public void testCreate() {
         try {
             User user = new User();
-            user.setFirstname("John");
+            user.setFirstName("John");
             user.setLastName("Doe");
-            user.setDateOfBirthd(new Date());
+            user.setDateOfBirth(new Date());
             assertNull(user.getId());
             user = dao.create(user);
             assertNotNull(user);
@@ -42,6 +43,42 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
             fail(e.toString());
         }
     }
+
+    public void testDelete() throws Exception {
+        try {
+            User user = dao.find(id);
+            dao.delete(user);
+            user = dao.find(id);
+            assertNotNull("User deleted ", user);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+/*
+    public void testUpdate() throws Exception {
+        try {
+            User user = dao.find(id);
+            dao.update(user);
+            User newUser = dao.find(id);
+            assertEquals("User updated ", user, newUser);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }*/
+
+    public void testFind(){
+        try{
+            User user = dao.find(id);
+            assertNotNull("User not found ", user);
+        } catch (DatabaseException e){
+            e.printStackTrace();
+            fail(e.toString());
+        }
+    }
+/**/
+
 
     @Override
     protected IDatabaseConnection getConnection() throws Exception {
