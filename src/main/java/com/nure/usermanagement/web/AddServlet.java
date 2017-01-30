@@ -1,17 +1,17 @@
-package nure.ua.hulko.daria.main.java.web;
+package main.java.com.nure.usermanagement.web;
 
 
-import nure.ua.hulko.daria.main.java.User;
-import nure.ua.hulko.daria.main.java.db.DaoFactory;
-import nure.ua.hulko.daria.main.java.db.DatabaseException;
+
+
+import main.java.com.nure.usermanagement.User;
+import main.java.com.nure.usermanagement.db.DaoFactory;
+import main.java.com.nure.usermanagement.db.DatabaseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-/**
- * Created by Darusya Gulko on 15.12.2016.
- */
+
 public class AddServlet  extends EditServlet {
 
     protected void processUser(User user) throws DatabaseException {

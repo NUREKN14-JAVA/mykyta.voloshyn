@@ -1,15 +1,12 @@
-package nure.ua.hulko.daria.test.java.web;
+package test.java.com.nure.usermanagement.web;
 
 import java.util.Properties;
 import com.mockobjects.dynamic.Mock;
 import com.mockrunner.servlet.BasicServletTestCaseAdapter;
-import nure.ua.hulko.daria.main.java.db.DaoFactory;
-import nure.ua.hulko.daria.main.java.db.MockDaoFactory;
+
+import main.java.com.nure.usermanagement.db.DaoFactory;
 
 
-/**
- * Created by Darusya Gulko on 16.12.2016.
- */
 public abstract class MockServletTestCase extends BasicServletTestCaseAdapter {
 
     private Mock mockUserDao;

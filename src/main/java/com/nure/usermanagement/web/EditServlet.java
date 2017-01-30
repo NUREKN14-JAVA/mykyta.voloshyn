@@ -1,9 +1,9 @@
-package nure.ua.hulko.daria.main.java.web;
+package main.java.com.nure.usermanagement.web;
 
 
-import nure.ua.hulko.daria.main.java.User;
-import nure.ua.hulko.daria.main.java.db.DaoFactory;
-import nure.ua.hulko.daria.main.java.db.DatabaseException;
+import main.java.com.nure.usermanagement.User;
+import main.java.com.nure.usermanagement.db.DaoFactory;
+import main.java.com.nure.usermanagement.db.DatabaseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +15,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 
 
-/**
- * Created by Darusya Gulko on 15.12.2016.
- */
+
 public class EditServlet extends HttpServlet {
 
     protected void service(HttpServletRequest req, HttpServletResponse resp)

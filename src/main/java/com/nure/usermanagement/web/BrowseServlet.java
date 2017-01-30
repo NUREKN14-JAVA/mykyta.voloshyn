@@ -1,12 +1,8 @@
-package nure.ua.hulko.daria.main.java.web;
+package main.java.com.nure.usermanagement.web;
 
-import nure.ua.hulko.daria.main.java.User;
-import nure.ua.hulko.daria.main.java.db.DaoFactory;
-import nure.ua.hulko.daria.main.java.db.DatabaseException;
-
-import javax.servlet.http.HttpServlet;
-import java.io.IOException;
-import java.util.Collection;
+import main.java.com.nure.usermanagement.User;
+import main.java.com.nure.usermanagement.db.DaoFactory;
+import main.java.com.nure.usermanagement.db.DatabaseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collection;
-/**
- * Created by Darusya Gulko on 21.12.2016.
- */
+
 public class BrowseServlet  extends HttpServlet {
 
     protected void service(HttpServletRequest req, HttpServletResponse resp)

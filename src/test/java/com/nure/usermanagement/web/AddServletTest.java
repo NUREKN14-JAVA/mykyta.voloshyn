@@ -1,14 +1,13 @@
-package nure.ua.hulko.daria.test.java.web;
+package test.java.com.nure.usermanagement.web;
 
-import nure.ua.hulko.daria.main.java.User;
-import nure.ua.hulko.daria.main.java.web.AddServlet;
+import main.java.com.nure.usermanagement.User;
+import main.java.com.nure.usermanagement.web.AddServlet;
+
 
 import java.text.DateFormat;
 import java.util.Date;
 
-/**
- * Created by Darusya Gulko on 15.12.2016.
- */
+
 public class AddServletTest extends MockServletTestCase {
 
     protected void setUp() throws Exception {

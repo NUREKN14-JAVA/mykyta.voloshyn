@@ -99,5 +99,29 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/standard-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jstl-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$MODULE_DIR$/lib/mockrunner-0.3.6.zip!/mockrunner-0.3.6/doc/api" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/lib/mockrunner-0.3.6.zip!/mockrunner-0.3.6/src" />
+          <root url="jar://$MODULE_DIR$/lib/mockrunner-0.3.6.zip!/mockrunner-0.3.6/srcj2ee1.3" />
+          <root url="jar://$MODULE_DIR$/lib/mockrunner-0.3.6.zip!/mockrunner-0.3.6/srcjdk1.3" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
