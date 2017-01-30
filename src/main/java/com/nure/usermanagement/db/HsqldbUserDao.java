@@ -13,8 +13,8 @@ public class HsqldbUserDao implements UserDao {
 
     public static final String INSERT_QUERY = "INSERT INTO users (firstname, lastname, dateofbirth) VALUES (?, ?, ?)";
     public static final String SELECT_ALL_QUERY = "SELECT id, firstname, lastname, dateofbirth FROM users";
-    private static final String UPDATE_QUERY = "Update users Set firstname=?, lastname=?, dateofbirth=? Where id=?";
-    private static final String DELETE_QUERY = "Delete From users Where id=?";
+    private static final String UPDATE_QUERY = "UPDATE users SET firstname=?, lastname=?, dateofbirth=? WHERE id=?";
+    private static final String DELETE_QUERY = "DELETE FROM users WHERE id=?";
     private static final String SELECT_BY_ID = "SELECT id, firstname, lastname, dateofbirth FROM users WHERE id=?";
 
     private ConnectionFactory connectionFactory;
@@ -71,7 +71,7 @@ public class HsqldbUserDao implements UserDao {
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setDate(3, new java.sql.Date(user.getDateOfBirth().getTime()));
-            statement.setLong(4, user.getId().longValue());
+            statement.setLong(4, user.getId());
             if (statement.executeUpdate() != 1)
                 throw new DatabaseException("№ of updated rows: " + statement.executeUpdate());
             statement.close();
@@ -101,7 +101,7 @@ public class HsqldbUserDao implements UserDao {
         try {
             Connection connection = connectionFactory.createConnection();
             PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID);
-            statement.setLong(1, id.longValue());
+            statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (!resultSet.next())
                 throw new DatabaseException("Couldn't find user id: " + id);

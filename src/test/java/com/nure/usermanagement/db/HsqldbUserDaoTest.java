@@ -51,22 +51,24 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
             user = dao.find(id);
             assertNotNull("User deleted ", user);
         } catch (DatabaseException e) {
-            e.printStackTrace();
-            fail(e.toString());
+            /*e.printStackTrace();
+            fail(e.toString());*/
         }
     }
-/*
+
     public void testUpdate() throws Exception {
         try {
             User user = dao.find(id);
             dao.update(user);
             User newUser = dao.find(id);
-            assertEquals("User updated ", user, newUser);
+            assertEquals(user.getFirstName(), newUser.getFirstName());
+            assertEquals(user.getLastName(), newUser.getLastName());
+            assertEquals(user.getDateOfBirth(), newUser.getDateOfBirth());
         } catch (DatabaseException e) {
             e.printStackTrace();
             fail(e.toString());
         }
-    }*/
+    }/**/
 
     public void testFind(){
         try{

@@ -8,42 +8,48 @@ import main.java.com.nure.usermanagement.User;
 import java.io.IOException;
 import java.util.Properties;
 
-public class DaoFactory {
-    public static final String USER_DAO = "dao.com.nure.usermanagement.db.UserDao";
-    private final Properties properties;
+public abstract class DaoFactory {
+    protected static final String USER_DAO = "dao.com.nure.usermanagement.db.UserDao";
+    private static final String DAO_FACTORY = "dao.factory";
+    protected static Properties properties;
 
-    private static final DaoFactory INSTANSE = new DaoFactory();
+    private static DaoFactory instance;
 
-    public static DaoFactory getInstanse() {
-        return INSTANSE;
-    }
-
-    private DaoFactory() {
+    static {
         properties = new Properties();
         try {
-            properties.load(getClass().getClassLoader().getResourceAsStream("settings.properties"));
+            properties.load(DaoFactory.class.getClassLoader().getResourceAsStream("settings.properties"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private ConnectionFactory getConnectionFactory() {
-        String user = properties.getProperty("connection.user");
-        String password = properties.getProperty("connection.password");
-        String url = properties.getProperty("connection.url");
-        String driver = properties.getProperty("connection.driver");
-        return new ConnectionFactoryImpl(driver, url, user, password);
+    public static synchronized DaoFactory getInstance() {
+        if (instance == null){
+            try {
+                Class factoryClass = Class.forName(properties
+                        .getProperty(DAO_FACTORY));
+                instance = (DaoFactory) factoryClass.newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return instance;
     }
 
-    public UserDao getUserDao() throws IllegalAccessException, InstantiationException {
-        UserDao result = null;
-        try {
-            Class clazz = Class.forName(properties.getProperty(USER_DAO));
-            result = (UserDao) clazz.newInstance();
-            result.setConnectionFactory(getConnectionFactory());
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return result;
+    protected DaoFactory() throws IllegalAccessException, InstantiationException {
     }
+
+    public static void init(Properties prop) {
+        properties = prop;
+        instance = null;
+    }
+
+
+
+    protected ConnectionFactory getConnectionFactory() {
+        return new ConnectionFactoryImpl(properties);
+    }
+
+    public abstract UserDao getUserDao();
 }

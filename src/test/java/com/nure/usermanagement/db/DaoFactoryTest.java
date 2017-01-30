@@ -10,7 +10,7 @@ import main.java.com.nure.usermanagement.db.UserDao;
 public class DaoFactoryTest extends TestCase {
     public void testGetUserDao() throws Exception {
         try {
-            DaoFactory daoFactory = DaoFactory.getInstanse();
+            DaoFactory daoFactory = DaoFactory.getInstance();
             assertNotNull("DaoFactory instance is null", daoFactory);
             UserDao userDao = daoFactory.getUserDao();
             assertNotNull("UserDao instance is null", userDao);
